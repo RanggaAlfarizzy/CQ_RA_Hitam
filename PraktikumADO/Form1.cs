@@ -144,7 +144,22 @@ namespace PraktikumADO
 
         private void btnUpdateMK_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Koneksi();
+                conn.Open();
 
+                // QUERY UPDATE MATAKULIAH
+                string query = "UPDATE MataKuliah SET SKS = 4 WHERE KodeMK = 'IF210101'";
+
+                cmd = new SqlCommand(query, conn);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data MataKuliah berhasil diupdate");
+
+                conn.Close();
+            }
         }
     }
 }
